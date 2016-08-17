@@ -153,3 +153,13 @@ set具有contains功能
 	conn = MySQLdb.connect(host='localhost', user='root',passwd='123', db='account', charset='utf8')  
 	# OK，如果没有charset='utf8'，插入为乱码
 
+#### - python Windows环境下交互cp65001异常 ####
+
+Python安装后进入命令行交互模式，输入任何代码都报
+	
+	unknown encoding: cp65001异常
+
+需要将编码(UTF-8)修改为 简体中文(GBK)
+在CMD窗口执行　
+	
+	chcp 936
