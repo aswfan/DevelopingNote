@@ -135,3 +135,19 @@ ListView的ItemClick事件：
 	          dislikes.replace(del , "," );
 	      }
 	});
+
+
+#### - Activity间传List ####
+
+传List：
+
+      Bundle bundle=new Bundle();
+      bundle.putParcelableArrayList("list", (ArrayList)list1);
+      intent.putExtras(bundle);
+      startActivity(intent);
+
+收List：
+
+	Bundle bundle=this.getIntent().getExtras();
+	ArrayList list2 = bundle.getParcelableArrayList("list");
+

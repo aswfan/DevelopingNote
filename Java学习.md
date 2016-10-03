@@ -23,17 +23,30 @@ Comparator实现类是sort方法的关键，参考例子：
 	            }
 
 
-#### - Activity间传List ####
+#### - Iterator(迭代器）的一般用法 ####
 
-传List：
+迭代器是一种设计模式，它是一个对象。它可以遍历并选择序列中的对象，而开发人员不需要了解该序列的底层结构。迭代器通常被称为“轻量型”对象，因为创建他们的代价小。
 
-      Bundle bundle=new Bundle();
-      bundle.putParcelableArrayList("list", (ArrayList)list1);
-      intent.putExtras(bundle);
-      startActivity(intent);
+Java中的interator()功能较简单，只能单向移动。而为List设计的ListIterator具有更多功能，它可以从两个方向遍历List，也可以从List中插入或删除元素。
 
-收List：
+注意：iterator()方法是java.lang.Iterable接口，被Collection类继承。
 
-	Bundle bundle=this.getIntent().getExtras();
-	ArrayList list2 = bundle.getParcelableArrayList("list");
+迭代器应用：
+ 
+	list l = new ArrayList();
+	l.add("aa");
+	l.add("bb");
+	l.add("cc");
+	for (Iterator iter = l.iterator(); iter.hasNext();) {
+	String str = (String)iter.next();
+	System.out.println(str);
+	}
+	/*迭代器用于while循环
+	Iterator iter = l.iterator();
+	while(iter.hasNext()){
+	String str = (String) iter.next();
+	System.out.println(str);
+	}
+	*/
+
 
